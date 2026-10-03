@@ -1,0 +1,169 @@
+{
+  "model_name": "cnn_bilstm",
+  "architecture": "Character Embedding -> Conv1D/ReLU/MaxPool -> Conv1D/ReLU/MaxPool -> BiLSTM -> Mean Pool -> Dense multiclass logits",
+  "model_path": "ml\\saved_models\\cnn_bilstm.pt",
+  "vocabulary_path": "ml\\saved_models\\cnn_bilstm_vocab.json",
+  "training_config": {
+    "seed": 42,
+    "embedding_dim": 32,
+    "cnn_channels": 64,
+    "lstm_hidden": 64,
+    "dropout": 0.35,
+    "batch_size": 512,
+    "learning_rate": 0.001,
+    "max_epochs": 8,
+    "early_stopping_patience": 3,
+    "optimizer": "Adam",
+    "loss": "class-weighted CrossEntropyLoss (balanced weights)",
+    "max_length_percentile": 0.97,
+    "num_workers": 0,
+    "max_length": 160,
+    "train_url_length_statistics": {
+      "p50": 47.0,
+      "p90": 107.0,
+      "p95": 134.0,
+      "p97": 160.0,
+      "p99": 235.0,
+      "max": 2175
+    },
+    "train_urls_truncated": 13349,
+    "val_urls_truncated": 2878,
+    "test_urls_truncated": 2862
+  },
+  "label_mapping": {
+    "benign": 0,
+    "defacement": 1,
+    "malware": 2,
+    "phishing": 3
+  },
+  "reverse_label_mapping": {
+    "0": "benign",
+    "1": "defacement",
+    "2": "malware",
+    "3": "phishing"
+  },
+  "split_sizes_from_saved_phase2": {
+    "random_seed": 42,
+    "train_ratio": 0.7,
+    "val_ratio": 0.15,
+    "test_ratio": 0.15,
+    "total_samples": 641125,
+    "train_samples": 448787,
+    "val_samples": 96169,
+    "test_samples": 96169,
+    "n_features": 42,
+    "n_classes": 4,
+    "classes": [
+      "benign",
+      "defacement",
+      "malware",
+      "phishing"
+    ],
+    "train_distribution": {
+      "benign": 299656,
+      "defacement": 66716,
+      "phishing": 65864,
+      "malware": 16551
+    },
+    "val_distribution": {
+      "benign": 64212,
+      "defacement": 14296,
+      "phishing": 14114,
+      "malware": 3547
+    },
+    "test_distribution": {
+      "benign": 64212,
+      "defacement": 14296,
+      "phishing": 14114,
+      "malware": 3547
+    }
+  },
+  "effective_sample_counts": {
+    "train": 448779,
+    "val": 96167,
+    "test": 96169
+  },
+  "excluded_conflicting_url_rows": {
+    "train": 8,
+    "val": 2
+  },
+  "ambiguous_url_strings_in_source": 6,
+  "best_epoch": 7,
+  "best_validation_macro_f1": 0.9615787490400102,
+  "epochs_completed": 8,
+  "epoch_history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.3914495423618155,
+      "train_accuracy": 0.8528206533728182,
+      "validation_accuracy": 0.9412584358459762,
+      "validation_macro_f1": 0.9153386268204257,
+      "epoch_seconds": 417.66483799999696
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.18457089355713052,
+      "train_accuracy": 0.9454854170983936,
+      "validation_accuracy": 0.9579377541152371,
+      "validation_macro_f1": 0.9400783353879185,
+      "epoch_seconds": 278.6288202999858
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.14555842435775448,
+      "train_accuracy": 0.9570969229843642,
+      "validation_accuracy": 0.9662254203624944,
+      "validation_macro_f1": 0.9502858204363789,
+      "epoch_seconds": 341.54172440001275
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.12251141418772614,
+      "train_accuracy": 0.964316512136263,
+      "validation_accuracy": 0.9640625162477773,
+      "validation_macro_f1": 0.9474836593420234,
+      "epoch_seconds": 257.6405265999492
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.11029854597626894,
+      "train_accuracy": 0.9675742403276446,
+      "validation_accuracy": 0.96438487214949,
+      "validation_macro_f1": 0.9533169442849244,
+      "epoch_seconds": 170.00762839999516
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.10195063491005439,
+      "train_accuracy": 0.9698203347304575,
+      "validation_accuracy": 0.9732652573127996,
+      "validation_macro_f1": 0.9587255730822496,
+      "epoch_seconds": 221.76131660002284
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.09254171490264364,
+      "train_accuracy": 0.9722625167398653,
+      "validation_accuracy": 0.9717470650015078,
+      "validation_macro_f1": 0.9615787490400102,
+      "epoch_seconds": 162.5877584000118
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.09249472874110846,
+      "train_accuracy": 0.9720664291332705,
+      "validation_accuracy": 0.9752513856104484,
+      "validation_macro_f1": 0.9595422629131931,
+      "epoch_seconds": 613.2162002000259
+    }
+  ],
+  "training_seconds": 2463.0488129000005,
+  "training_wall_seconds": 2583.9113313000125,
+  "device": "cpu",
+  "class_counts_train": {
+    "benign": 299651,
+    "defacement": 66716,
+    "malware": 16551,
+    "phishing": 65861
+  }
+}

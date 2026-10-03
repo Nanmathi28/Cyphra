@@ -1,0 +1,503 @@
+{
+  "logistic_regression": {
+    "model_name": "logistic_regression",
+    "accuracy": 0.9097318262641808,
+    "precision_weighted": 0.9056694101693584,
+    "recall_weighted": 0.9097318262641808,
+    "f1_weighted": 0.9043295519793622,
+    "f1_macro": 0.8564040603701378,
+    "inference_time_ms": 0.0002133542461593795,
+    "false_negatives": 5334,
+    "total_malicious": 31957,
+    "false_negative_rate": 0.1669117877147417,
+    "per_class_metrics": {
+      "benign": {
+        "precision": 0.9213343951862667,
+        "recall": 0.9729022612595777,
+        "f1": 0.9464163977639413
+      },
+      "defacement": {
+        "precision": 0.9176299623489002,
+        "recall": 0.9717403469501958,
+        "f1": 0.9439103108544249
+      },
+      "malware": {
+        "precision": 0.9500349406009784,
+        "recall": 0.7665632929235974,
+        "f1": 0.8484943048837572
+      },
+      "phishing": {
+        "precision": 0.8111368461686933,
+        "recall": 0.595508006234944,
+        "f1": 0.6867952279784278
+      }
+    },
+    "confusion_matrix": [
+      [
+        62472,
+        343,
+        33,
+        1364
+      ],
+      [
+        233,
+        13892,
+        20,
+        151
+      ],
+      [
+        199,
+        187,
+        2719,
+        442
+      ],
+      [
+        4902,
+        717,
+        90,
+        8405
+      ]
+    ],
+    "classification_report": {
+      "benign": {
+        "precision": 0.9213343951862667,
+        "recall": 0.9729022612595777,
+        "f1-score": 0.9464163977639413,
+        "support": 64212.0
+      },
+      "defacement": {
+        "precision": 0.9176299623489002,
+        "recall": 0.9717403469501958,
+        "f1-score": 0.9439103108544249,
+        "support": 14296.0
+      },
+      "malware": {
+        "precision": 0.9500349406009784,
+        "recall": 0.7665632929235974,
+        "f1-score": 0.8484943048837572,
+        "support": 3547.0
+      },
+      "phishing": {
+        "precision": 0.8111368461686933,
+        "recall": 0.595508006234944,
+        "f1-score": 0.6867952279784278,
+        "support": 14114.0
+      },
+      "accuracy": 0.9097318262641808,
+      "macro avg": {
+        "precision": 0.9000340360762096,
+        "recall": 0.8266784768420787,
+        "f1-score": 0.8564040603701378,
+        "support": 96169.0
+      },
+      "weighted avg": {
+        "precision": 0.9056694101693584,
+        "recall": 0.9097318262641808,
+        "f1-score": 0.9043295519793622,
+        "support": 96169.0
+      }
+    }
+  },
+  "decision_tree": {
+    "model_name": "decision_tree",
+    "accuracy": 0.9483409414676247,
+    "precision_weighted": 0.9517910291162351,
+    "recall_weighted": 0.9483409414676247,
+    "f1_weighted": 0.9494758755769924,
+    "f1_macro": 0.9261502022305975,
+    "inference_time_ms": 0.0004580302314277145,
+    "false_negatives": 980,
+    "total_malicious": 31957,
+    "false_negative_rate": 0.030666207716619206,
+    "per_class_metrics": {
+      "benign": {
+        "precision": 0.9842418395240392,
+        "recall": 0.9532486139662368,
+        "f1": 0.9684973339029446
+      },
+      "defacement": {
+        "precision": 0.9700379703141181,
+        "recall": 0.9828623391158366,
+        "f1": 0.9764080469754353
+      },
+      "malware": {
+        "precision": 0.9013661202185792,
+        "recall": 0.9300817592331547,
+        "f1": 0.915498820591092
+      },
+      "phishing": {
+        "precision": 0.7983453328280915,
+        "recall": 0.8956355391809551,
+        "f1": 0.8441966074529185
+      }
+    },
+    "confusion_matrix": [
+      [
+        61210,
+        70,
+        98,
+        2834
+      ],
+      [
+        30,
+        14051,
+        47,
+        168
+      ],
+      [
+        19,
+        38,
+        3299,
+        191
+      ],
+      [
+        931,
+        326,
+        216,
+        12641
+      ]
+    ],
+    "classification_report": {
+      "benign": {
+        "precision": 0.9842418395240392,
+        "recall": 0.9532486139662368,
+        "f1-score": 0.9684973339029446,
+        "support": 64212.0
+      },
+      "defacement": {
+        "precision": 0.9700379703141181,
+        "recall": 0.9828623391158366,
+        "f1-score": 0.9764080469754353,
+        "support": 14296.0
+      },
+      "malware": {
+        "precision": 0.9013661202185792,
+        "recall": 0.9300817592331547,
+        "f1-score": 0.915498820591092,
+        "support": 3547.0
+      },
+      "phishing": {
+        "precision": 0.7983453328280915,
+        "recall": 0.8956355391809551,
+        "f1-score": 0.8441966074529185,
+        "support": 14114.0
+      },
+      "accuracy": 0.9483409414676247,
+      "macro avg": {
+        "precision": 0.913497815721207,
+        "recall": 0.9404570628740457,
+        "f1-score": 0.9261502022305975,
+        "support": 96169.0
+      },
+      "weighted avg": {
+        "precision": 0.9517910291162351,
+        "recall": 0.9483409414676247,
+        "f1-score": 0.9494758755769924,
+        "support": 96169.0
+      }
+    }
+  },
+  "random_forest": {
+    "model_name": "random_forest",
+    "accuracy": 0.9667668375464027,
+    "precision_weighted": 0.9670563052350697,
+    "recall_weighted": 0.9667668375464027,
+    "f1_weighted": 0.9668377157831388,
+    "f1_macro": 0.9536826801630609,
+    "inference_time_ms": 0.006172214705556642,
+    "false_negatives": 1099,
+    "total_malicious": 31957,
+    "false_negative_rate": 0.03438996151078011,
+    "per_class_metrics": {
+      "benign": {
+        "precision": 0.9827945205479452,
+        "recall": 0.977636578832617,
+        "f1": 0.9802087643554772
+      },
+      "defacement": {
+        "precision": 0.97098580010923,
+        "recall": 0.994893676552882,
+        "f1": 0.9827943615257049
+      },
+      "malware": {
+        "precision": 0.9936670687575392,
+        "recall": 0.9289540456723993,
+        "f1": 0.960221477487979
+      },
+      "phishing": {
+        "precision": 0.8847871598046058,
+        "recall": 0.8983279013745218,
+        "f1": 0.8915061172830826
+      }
+    },
+    "confusion_matrix": [
+      [
+        62776,
+        7,
+        2,
+        1427
+      ],
+      [
+        23,
+        14223,
+        3,
+        47
+      ],
+      [
+        23,
+        52,
+        3295,
+        177
+      ],
+      [
+        1053,
+        366,
+        16,
+        12679
+      ]
+    ],
+    "classification_report": {
+      "benign": {
+        "precision": 0.9827945205479452,
+        "recall": 0.977636578832617,
+        "f1-score": 0.9802087643554772,
+        "support": 64212.0
+      },
+      "defacement": {
+        "precision": 0.97098580010923,
+        "recall": 0.994893676552882,
+        "f1-score": 0.9827943615257049,
+        "support": 14296.0
+      },
+      "malware": {
+        "precision": 0.9936670687575392,
+        "recall": 0.9289540456723993,
+        "f1-score": 0.960221477487979,
+        "support": 3547.0
+      },
+      "phishing": {
+        "precision": 0.8847871598046058,
+        "recall": 0.8983279013745218,
+        "f1-score": 0.8915061172830826,
+        "support": 14114.0
+      },
+      "accuracy": 0.9667668375464027,
+      "macro avg": {
+        "precision": 0.95805863730483,
+        "recall": 0.949953050608105,
+        "f1-score": 0.9536826801630609,
+        "support": 96169.0
+      },
+      "weighted avg": {
+        "precision": 0.9670563052350697,
+        "recall": 0.9667668375464027,
+        "f1-score": 0.9668377157831388,
+        "support": 96169.0
+      }
+    }
+  },
+  "xgboost": {
+    "model_name": "xgboost",
+    "accuracy": 0.9607773814846781,
+    "precision_weighted": 0.9602206378765924,
+    "recall_weighted": 0.9607773814846781,
+    "f1_weighted": 0.9598848484250924,
+    "f1_macro": 0.9371418219635228,
+    "inference_time_ms": 0.0023204713145948434,
+    "false_negatives": 2188,
+    "total_malicious": 31957,
+    "false_negative_rate": 0.06846700253465594,
+    "per_class_metrics": {
+      "benign": {
+        "precision": 0.9667118014879277,
+        "recall": 0.9895502398305612,
+        "f1": 0.9779977066514803
+      },
+      "defacement": {
+        "precision": 0.9624137224082553,
+        "recall": 0.9851007274762171,
+        "f1": 0.9736250820975492
+      },
+      "malware": {
+        "precision": 0.9887604367373154,
+        "recall": 0.8680575133915985,
+        "f1": 0.9244858129409999
+      },
+      "phishing": {
+        "precision": 0.9212952020798866,
+        "recall": 0.8285390392518067,
+        "f1": 0.8724586861640617
+      }
+    },
+    "confusion_matrix": [
+      [
+        63541,
+        17,
+        4,
+        650
+      ],
+      [
+        122,
+        14083,
+        5,
+        86
+      ],
+      [
+        60,
+        145,
+        3079,
+        263
+      ],
+      [
+        2006,
+        388,
+        26,
+        11694
+      ]
+    ],
+    "classification_report": {
+      "benign": {
+        "precision": 0.9667118014879277,
+        "recall": 0.9895502398305612,
+        "f1-score": 0.9779977066514803,
+        "support": 64212.0
+      },
+      "defacement": {
+        "precision": 0.9624137224082553,
+        "recall": 0.9851007274762171,
+        "f1-score": 0.9736250820975492,
+        "support": 14296.0
+      },
+      "malware": {
+        "precision": 0.9887604367373154,
+        "recall": 0.8680575133915985,
+        "f1-score": 0.9244858129409999,
+        "support": 3547.0
+      },
+      "phishing": {
+        "precision": 0.9212952020798866,
+        "recall": 0.8285390392518067,
+        "f1-score": 0.8724586861640617,
+        "support": 14114.0
+      },
+      "accuracy": 0.9607773814846781,
+      "macro avg": {
+        "precision": 0.9597952906783462,
+        "recall": 0.9178118799875459,
+        "f1-score": 0.9371418219635228,
+        "support": 96169.0
+      },
+      "weighted avg": {
+        "precision": 0.9602206378765924,
+        "recall": 0.9607773814846781,
+        "f1-score": 0.9598848484250924,
+        "support": 96169.0
+      }
+    }
+  },
+  "cnn_bilstm": {
+    "model_name": "cnn_bilstm",
+    "accuracy": 0.9718828312657926,
+    "precision_weighted": 0.9732305132123718,
+    "recall_weighted": 0.9718828312657926,
+    "f1_weighted": 0.9722888375905426,
+    "f1_macro": 0.9614561710832671,
+    "inference_time_ms": 14.00317499996163,
+    "false_negatives": 536,
+    "total_malicious": 31957,
+    "false_negative_rate": 0.016772538098069282,
+    "per_class_metrics": {
+      "benign": {
+        "precision": 0.9914944936367387,
+        "recall": 0.9730579953902697,
+        "f1": 0.9821897351253635
+      },
+      "defacement": {
+        "precision": 0.9864425537801756,
+        "recall": 0.9975517627308338,
+        "f1": 0.9919660557159252
+      },
+      "malware": {
+        "precision": 0.9753551754131632,
+        "recall": 0.9484071045954328,
+        "f1": 0.9616923956546599
+      },
+      "phishing": {
+        "precision": 0.8762217120367334,
+        "recall": 0.9464361626753578,
+        "f1": 0.9099764978371199
+      }
+    },
+    "confusion_matrix": [
+      [
+        62482,
+        20,
+        17,
+        1693
+      ],
+      [
+        2,
+        14261,
+        7,
+        26
+      ],
+      [
+        8,
+        7,
+        3364,
+        168
+      ],
+      [
+        526,
+        169,
+        61,
+        13358
+      ]
+    ],
+    "confusion_matrix_labels": [
+      "benign",
+      "defacement",
+      "malware",
+      "phishing"
+    ],
+    "classification_report": {
+      "benign": {
+        "precision": 0.9914944936367387,
+        "recall": 0.9730579953902697,
+        "f1-score": 0.9821897351253635,
+        "support": 64212.0
+      },
+      "defacement": {
+        "precision": 0.9864425537801756,
+        "recall": 0.9975517627308338,
+        "f1-score": 0.9919660557159252,
+        "support": 14296.0
+      },
+      "malware": {
+        "precision": 0.9753551754131632,
+        "recall": 0.9484071045954328,
+        "f1-score": 0.9616923956546599,
+        "support": 3547.0
+      },
+      "phishing": {
+        "precision": 0.8762217120367334,
+        "recall": 0.9464361626753578,
+        "f1-score": 0.9099764978371199,
+        "support": 14114.0
+      },
+      "accuracy": 0.9718828312657926,
+      "macro avg": {
+        "precision": 0.9573784837167026,
+        "recall": 0.9663632563479736,
+        "f1-score": 0.9614561710832671,
+        "support": 96169.0
+      },
+      "weighted avg": {
+        "precision": 0.9732305132123718,
+        "recall": 0.9718828312657926,
+        "f1-score": 0.9722888375905426,
+        "support": 96169.0
+      }
+    }
+  }
+}

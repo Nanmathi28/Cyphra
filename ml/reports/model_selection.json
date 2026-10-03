@@ -1,0 +1,86 @@
+{
+  "selected_model": "cnn_bilstm",
+  "selection_date": "2026-10-03",
+  "selection_rule": "Highest security-first composite score; false-negative rate (40%), macro F1 (25%), weighted F1 (20%), accuracy (15%). Inference time is reported but excluded because timing methods differ across model families.",
+  "score_weights": {
+    "security_recall": 0.4,
+    "macro_f1": 0.25,
+    "weighted_f1": 0.2,
+    "accuracy": 0.15
+  },
+  "scores": {
+    "logistic_regression": 0.8646619843421373,
+    "decision_tree": 0.9514173838065438,
+    "random_forest": 0.9630472542250414,
+    "xgboost": 0.9429922313847384,
+    "cnn_bilstm": 0.9738952197395665
+  },
+  "comparison_table": {
+    "logistic_regression": {
+      "accuracy": 0.9097318262641808,
+      "precision_weighted": 0.9056694101693584,
+      "recall_weighted": 0.9097318262641808,
+      "f1_macro": 0.8564040603701378,
+      "f1_weighted": 0.9043295519793622,
+      "inference_time_ms": 0.0002133542461593795,
+      "false_negatives": 5334,
+      "total_malicious": 31957,
+      "false_negative_rate": 0.1669117877147417,
+      "selection_score": 0.8646619843421373,
+      "training_time_seconds": 116.91746425628662
+    },
+    "decision_tree": {
+      "accuracy": 0.9483409414676247,
+      "precision_weighted": 0.9517910291162351,
+      "recall_weighted": 0.9483409414676247,
+      "f1_macro": 0.9261502022305975,
+      "f1_weighted": 0.9494758755769924,
+      "inference_time_ms": 0.0004580302314277145,
+      "false_negatives": 980,
+      "total_malicious": 31957,
+      "false_negative_rate": 0.030666207716619206,
+      "selection_score": 0.9514173838065438,
+      "training_time_seconds": 11.809988498687744
+    },
+    "random_forest": {
+      "accuracy": 0.9667668375464027,
+      "precision_weighted": 0.9670563052350697,
+      "recall_weighted": 0.9667668375464027,
+      "f1_macro": 0.9536826801630609,
+      "f1_weighted": 0.9668377157831388,
+      "inference_time_ms": 0.006172214705556642,
+      "false_negatives": 1099,
+      "total_malicious": 31957,
+      "false_negative_rate": 0.03438996151078011,
+      "selection_score": 0.9630472542250414,
+      "training_time_seconds": 36.238525390625
+    },
+    "xgboost": {
+      "accuracy": 0.9607773814846781,
+      "precision_weighted": 0.9602206378765924,
+      "recall_weighted": 0.9607773814846781,
+      "f1_macro": 0.9371418219635228,
+      "f1_weighted": 0.9598848484250924,
+      "inference_time_ms": 0.0023204713145948434,
+      "false_negatives": 2188,
+      "total_malicious": 31957,
+      "false_negative_rate": 0.06846700253465594,
+      "selection_score": 0.9429922313847384,
+      "training_time_seconds": 17.142401695251465
+    },
+    "cnn_bilstm": {
+      "accuracy": 0.9718828312657926,
+      "precision_weighted": 0.9732305132123718,
+      "recall_weighted": 0.9718828312657926,
+      "f1_macro": 0.9614561710832671,
+      "f1_weighted": 0.9722888375905426,
+      "inference_time_ms": 14.00317499996163,
+      "false_negatives": 536,
+      "total_malicious": 31957,
+      "false_negative_rate": 0.016772538098069282,
+      "selection_score": 0.9738952197395665,
+      "training_time_seconds": 2463.0488129000005
+    }
+  },
+  "test_metrics_used_for_final_comparison": true
+}

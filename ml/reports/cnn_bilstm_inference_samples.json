@@ -1,0 +1,77 @@
+[
+  {
+    "true_label_in_heldout_test": "phishing",
+    "url": "www.atariarchives.org/mlb/",
+    "prediction": "phishing",
+    "prediction_index": 3,
+    "confidence": 0.9750106930732727,
+    "probabilities": {
+      "benign": 0.022672433406114578,
+      "defacement": 3.448630741331726e-05,
+      "malware": 0.002282353350892663,
+      "phishing": 0.9750106930732727
+    },
+    "model": "cnn_bilstm",
+    "probability_sum": 0.9999999661376933
+  },
+  {
+    "true_label_in_heldout_test": "benign",
+    "url": "kctwistersvolleyball.com/",
+    "prediction": "benign",
+    "prediction_index": 0,
+    "confidence": 0.9994725584983826,
+    "probabilities": {
+      "benign": 0.9994725584983826,
+      "defacement": 2.912297247803508e-07,
+      "malware": 2.9821808311680797e-06,
+      "phishing": 0.0005242917686700821
+    },
+    "model": "cnn_bilstm",
+    "probability_sum": 1.0000001236776086
+  },
+  {
+    "true_label_in_heldout_test": "benign",
+    "url": "evri.com/person/bill-norman-0x657ff",
+    "prediction": "benign",
+    "prediction_index": 0,
+    "confidence": 0.9974029660224915,
+    "probabilities": {
+      "benign": 0.9974029660224915,
+      "defacement": 4.754201199830277e-06,
+      "malware": 2.8151556762168184e-05,
+      "phishing": 0.002564128255471587
+    },
+    "model": "cnn_bilstm",
+    "probability_sum": 1.000000000035925
+  },
+  {
+    "true_label_in_heldout_test": "defacement",
+    "url": "http://www.feuerwehr-moellbergen.de/index.php?option=com_content&view=article&catid=&id=204:bf-tag-lg",
+    "prediction": "defacement",
+    "prediction_index": 1,
+    "confidence": 0.9999969005584717,
+    "probabilities": {
+      "benign": 2.3245729607879184e-07,
+      "defacement": 0.9999969005584717,
+      "malware": 2.14024862543738e-06,
+      "phishing": 7.180731245171046e-07
+    },
+    "model": "cnn_bilstm",
+    "probability_sum": 0.9999999913375177
+  },
+  {
+    "true_label_in_heldout_test": "phishing",
+    "url": "www.ncftp.com/ncftpd/",
+    "prediction": "phishing",
+    "prediction_index": 3,
+    "confidence": 0.998427152633667,
+    "probabilities": {
+      "benign": 0.0011054958449676633,
+      "defacement": 6.805833891121438e-06,
+      "malware": 0.0004605914291460067,
+      "phishing": 0.998427152633667
+    },
+    "model": "cnn_bilstm",
+    "probability_sum": 1.0000000457416718
+  }
+]
