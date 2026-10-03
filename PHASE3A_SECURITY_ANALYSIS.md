@@ -16,7 +16,7 @@ The result includes the normalized URL, scheme, hostname, explicit port, path, q
 
 ## 4. Domain analysis
 
-The analyzer identifies IPv4 and IPv6 literals with Python's `ipaddress` module. For hostnames it uses `tldextract` 5.3.2 with its bundled public-suffix snapshot; runtime public-suffix downloads are disabled. It reports registered domain, subdomain, public suffix, hostname label count, dots, digits, hyphens, special characters, and `www` presence. The existing Phase 2 `subdomain_count` convention is reused for consistency. For IP literals, registered-domain and public-suffix fields are `null`.
+The analyzer identifies IPv4 and IPv6 literals with Python's `ipaddress` module. For hostnames it uses `tldextract` 5.3.2 with its bundled public-suffix snapshot; runtime public-suffix downloads are disabled. It reports registered domain, subdomain, public suffix, hostname label count, dots, digits, hyphens, special characters, and `www` presence. `subdomain_count` mirrors the Phase 2 feature extractor for compatibility; `registered_subdomain_count` counts the labels identified as subdomains by public-suffix parsing. This distinction matters for multi-label suffixes such as `co.uk`. For IP literals, registered-domain and public-suffix fields are `null`.
 
 Public-suffix data is versioned with the dependency and can lag future registry changes. An empty/unrecognized suffix is surfaced in `suffix_source` instead of inventing a registered domain.
 
@@ -26,7 +26,7 @@ Evidence includes HTTP/HTTPS use, supported scheme, suspicious keyword count and
 
 ## 6. Redirect analysis
 
-Redirect inspection uses manual HTTP requests with a four-second connect/read timeout, a maximum of five redirects, a byte-range request, and no response-body consumption. Only HTTP and HTTPS are followed; cookies, credentials, JavaScript, forms, and authentication are not used. Redirect targets are resolved and checked before each request. Loopback, private, link-local, reserved, and other non-global IP destinations are blocked. Requests connect to a checked IP address directly; HTTPS still verifies the certificate against the original hostname.
+Redirect inspection uses manual HTTP requests with a three-second connect/read timeout, a maximum of five redirects, a byte-range request, and no response-body consumption. Only HTTP and HTTPS are followed; cookies, credentials, JavaScript, forms, and authentication are not used. Redirect targets are resolved and checked before each request. Loopback, private, link-local, reserved, and other non-global IP destinations are blocked. Requests connect to a checked IP address directly; HTTPS still verifies the certificate against the original hostname.
 
 The result includes status (`reachable`, `unreachable`, `timeout`, `blocked`, or `error`), HTTP status when available, redirect chain/count, final URL and hostname, hostname/domain/scheme changes, whether any hop crossed registered domains, a shortener-expansion indicator, and an excessive-redirect indicator. Network failure remains a resolution status and is not translated into a threat verdict. System DNS resolution uses the operating system resolver; its lookup duration is not bounded by the Python socket API timeout.
 
@@ -56,7 +56,7 @@ Response shape (model-dependent fields are placeholders here, not example predic
   "phase2_ml_features": {},
   "redirect_analysis": {},
   "final_destination_features": null,
-  "threat_intelligence": {"status": "not_integrated", "matches": []},
+  "threat_intelligence": {"status": "not_integrated"},
   "risk_decision": null,
   "ml": {
     "prediction": "<saved-model-output>",

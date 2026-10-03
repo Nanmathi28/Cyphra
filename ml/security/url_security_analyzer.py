@@ -116,6 +116,7 @@ def _domain_details(hostname: str, ip_address: ipaddress._BaseAddress | None) ->
             "hostname": hostname,
             "registered_domain": None,
             "subdomain": None,
+            "registered_subdomain_count": None,
             "public_suffix": None,
             "suffix_source": "not_applicable_ip",
             "is_ip_address": True,
@@ -134,6 +135,7 @@ def _domain_details(hostname: str, ip_address: ipaddress._BaseAddress | None) ->
         "hostname": hostname,
         "registered_domain": registered_domain,
         "subdomain": subdomain,
+        "registered_subdomain_count": len(subdomain.split(".")) if subdomain else 0,
         "subdomain_count": feature_subdomain_count,
         "public_suffix": public_suffix,
         "suffix_source": "tldextract_bundled_public_suffix_list" if public_suffix else "no_known_public_suffix",
@@ -161,7 +163,7 @@ class _PinnedHTTPSConnection(http.client.HTTPSConnection):
 class URLSecurityAnalyzer:
     """Extract observable URL evidence and optionally inspect safe redirects."""
 
-    def __init__(self, timeout_seconds: float = 4.0, max_redirects: int = 5):
+    def __init__(self, timeout_seconds: float = 3.0, max_redirects: int = 5):
         self.timeout_seconds = max(0.5, float(timeout_seconds))
         self.max_redirects = max(0, min(int(max_redirects), 10))
         self.feature_extractor = URLFeatureExtractor()
@@ -175,7 +177,6 @@ class URLSecurityAnalyzer:
             keyword for keyword in self.feature_extractor.SUSPICIOUS_KEYWORDS
             if keyword in raw_url.lower()
         ]
-        path_parts = [part for part in parsed.path.split("/") if part]
         userinfo = parsed.netloc.rsplit("@", 1)[0] if "@" in parsed.netloc else ""
         username, separator, password = userinfo.partition(":")
         host_label_count = len(hostname.split("."))
@@ -249,7 +250,9 @@ class URLSecurityAnalyzer:
                 resolution_status, reason = "blocked", "unsupported_scheme"
                 break
             try:
-                addresses = _resolve_public_addresses(hostname, port or (443 if parsed.scheme == "https" else 80))
+                addresses = _resolve_public_addresses(
+                    hostname, port if port is not None else (443 if parsed.scheme == "https" else 80)
+                )
                 response_status, location = self._fetch_once(current_url, parsed, hostname, port, ip_address, addresses)
                 status_code = response_status
             except _BlockedDestination as exc:
@@ -273,7 +276,11 @@ class URLSecurityAnalyzer:
             if redirect_number >= self.max_redirects:
                 resolution_status, reason = "blocked", "maximum_redirects_exceeded"
                 break
-            destination = normalize_url(urljoin(current_url, location))
+            try:
+                destination = normalize_url(urljoin(current_url, location))
+            except URLInputError:
+                resolution_status, reason = "error", "invalid_redirect_target"
+                break
             if destination in visited:
                 resolution_status, reason = "blocked", "redirect_loop"
                 break
@@ -289,7 +296,7 @@ class URLSecurityAnalyzer:
             visited.add(current_url)
 
         try:
-            final_parsed, final_hostname, _, final_ip = _parse_url(current_url)
+            final_parsed, final_hostname, _, _ = _parse_url(current_url)
             final_features = self.analyze_features(current_url)
             final_domain = final_features["domain_characteristics"].get("registered_domain")
         except URLInputError:
@@ -337,7 +344,7 @@ class URLSecurityAnalyzer:
         }
 
     def _fetch_once(self, url, parsed, hostname, port, ip_address, addresses):
-        effective_port = port or (443 if parsed.scheme == "https" else 80)
+        effective_port = port if port is not None else (443 if parsed.scheme == "https" else 80)
         path = parsed.path or "/"
         if parsed.query:
             path += "?" + parsed.query
@@ -398,16 +405,20 @@ class URLSecurityAnalyzer:
             "excessive_redirects": False,
             "max_redirects": self.max_redirects,
         }
+        indicators = features["security_indicators"]
+        redirects_were_checked = redirect_data["resolution_status"] != "not_requested"
+        indicators["redirect_count"] = redirect_data["redirect_count"] if redirects_were_checked else None
+        indicators["excessive_redirects"] = redirect_data["excessive_redirects"] if redirects_were_checked else None
         return {
             "url": _redact_url_credentials(raw_url.strip()),
             "normalized_url": features.pop("normalized_url"),
             "url_structure": features["url_structure"],
             "domain_characteristics": features["domain_characteristics"],
-            "security_indicators": features["security_indicators"],
+            "security_indicators": indicators,
             "phase2_ml_features": features["phase2_ml_features"],
             "redirect_analysis": redirect_data,
             "final_destination_features": redirect_data["final_destination_features"],
-            "threat_intelligence": {"status": "not_integrated", "matches": []},
+            "threat_intelligence": {"status": "not_integrated"},
             "risk_decision": None,
         }
 
