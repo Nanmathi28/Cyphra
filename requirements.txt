@@ -3,11 +3,17 @@ fastapi==0.104.1
 uvicorn[standard]==0.24.0
 pydantic==2.5.0
 python-multipart==0.0.6
+httpx==0.27.2  # TestClient for the FastAPI/Starlette test suite; keep below 0.28.
 
 # ML/Data dependencies
 pandas==2.1.3
 numpy==1.26.2
 scikit-learn==1.3.2
+
+# CPU-only PyTorch wheel for Windows/Python 3.11 and the saved CNN-BiLSTM model.
+# Official CPU wheel index keeps a fresh `pip install -r requirements.txt` reproducible.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.14.1+cpu
 
 # QR processing
 pyzbar==0.1.9

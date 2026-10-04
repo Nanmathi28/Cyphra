@@ -1,0 +1,44 @@
+{
+  "expo": {
+    "name": "NIVARA",
+    "slug": "nivara",
+    "scheme": "nivara",
+    "version": "1.0.0",
+    "description": "Review QR code destinations for security risks before you choose to open them.",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#071321",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.nivara.app",
+      "backgroundColor": "#071321",
+      "adaptiveIcon": {
+        "backgroundColor": "#071321",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow NIVARA to use the camera to scan QR codes.",
+          "microphonePermission": false,
+          "recordAudioAndroid": false
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

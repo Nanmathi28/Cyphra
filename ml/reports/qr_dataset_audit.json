@@ -1,0 +1,242 @@
+{
+  "audit_timestamp_utc": "2026-10-04T01:14:24.856724+00:00",
+  "audit_scope": "read-only; folder names are candidate categories, not validated ground-truth labels",
+  "locations": {
+    "archive": "C:\\Users\\nanma\\OneDrive\\Desktop\\Cyphra\\qr.zip",
+    "extracted_copy": "C:\\Users\\nanma\\OneDrive\\Desktop\\Cyphra\\data\\qr"
+  },
+  "archive": {
+    "size_bytes": 227358917,
+    "member_count": 200000,
+    "image_count": 200000,
+    "image_uncompressed_bytes": 185581039,
+    "extensions": {
+      ".png": 200000
+    },
+    "non_image_or_metadata_files": [],
+    "duplicate_member_name_count": 0,
+    "duplicate_member_names": [],
+    "exact_duplicate_sha256_groups": 0,
+    "duplicate_image_count_excess": 0,
+    "cross_candidate_folder_duplicate_groups": 0,
+    "cross_candidate_folder_duplicate_examples": []
+  },
+  "extracted_copy": {
+    "file_count_all_types": 200000,
+    "image_count": 200000,
+    "extensions": {
+      ".png": 200000
+    },
+    "candidate_folder_counts": {
+      "QR codes/benign/benign": 100000,
+      "QR codes/malicious/malicious": 100000
+    },
+    "sample_archive_matches": [
+      {
+        "path": "QR codes/benign/benign/benign_0.png",
+        "exists": true,
+        "hash_matches_archive": true
+      },
+      {
+        "path": "QR codes/benign/benign/benign_54999.png",
+        "exists": true,
+        "hash_matches_archive": true
+      },
+      {
+        "path": "QR codes/benign/benign/benign_99999.png",
+        "exists": true,
+        "hash_matches_archive": true
+      },
+      {
+        "path": "QR codes/malicious/malicious/malicious_316254.png",
+        "exists": true,
+        "hash_matches_archive": true
+      },
+      {
+        "path": "QR codes/malicious/malicious/malicious_366254.png",
+        "exists": true,
+        "hash_matches_archive": true
+      },
+      {
+        "path": "QR codes/malicious/malicious/malicious_416253.png",
+        "exists": true,
+        "hash_matches_archive": true
+      }
+    ]
+  },
+  "candidate_folders": {
+    "QR codes/benign/benign": {
+      "candidate_folder_only_label": true,
+      "image_count": 100000,
+      "png_header_valid_count": 100000,
+      "dimensions_counts": {
+        "370x370": 5212,
+        "410x410": 94780,
+        "450x450": 8
+      },
+      "width_min_max": [
+        370,
+        450
+      ],
+      "height_min_max": [
+        370,
+        450
+      ],
+      "aspect_ratio_min_max": [
+        1.0,
+        1.0
+      ],
+      "modes_from_png_color_type": {
+        "L": 100000
+      },
+      "png_bit_depths": {
+        "1": 100000
+      },
+      "png_color_types": {
+        "0": 100000
+      },
+      "transparency_channel_count": 0,
+      "file_size_bytes": {
+        "min": 708,
+        "median": 940.0,
+        "max": 1101
+      },
+      "filename_index_min_max": [
+        0,
+        99999
+      ]
+    },
+    "QR codes/malicious/malicious": {
+      "candidate_folder_only_label": true,
+      "image_count": 100000,
+      "png_header_valid_count": 100000,
+      "dimensions_counts": {
+        "370x370": 10371,
+        "410x410": 89612,
+        "450x450": 16,
+        "490x490": 1
+      },
+      "width_min_max": [
+        370,
+        490
+      ],
+      "height_min_max": [
+        370,
+        490
+      ],
+      "aspect_ratio_min_max": [
+        1.0,
+        1.0
+      ],
+      "modes_from_png_color_type": {
+        "L": 100000
+      },
+      "png_bit_depths": {
+        "1": 100000
+      },
+      "png_color_types": {
+        "0": 100000
+      },
+      "transparency_channel_count": 0,
+      "file_size_bytes": {
+        "min": 718,
+        "median": 934.0,
+        "max": 1234
+      },
+      "filename_index_min_max": [
+        316254,
+        416253
+      ]
+    }
+  },
+  "semantic_findings": {
+    "folder_names_are_ground_truth": false,
+    "verified_genuine_vs_tampered_metadata_found": false,
+    "label_interpretation": "No label documentation or metadata is present in the archive; benign/malicious does not establish genuine/tampered.",
+    "payload_vs_visual_tampering": "The representative decoded payloads are URLs; folder semantics suggest destination reputation, not visual manipulation, but source documentation is unavailable."
+  },
+  "representative_payload_decode": {
+    "decoder": "OpenCV QRCodeDetector",
+    "sample_count": 10,
+    "decoded_count": 9,
+    "samples": [
+      {
+        "path": "QR codes/benign/benign/benign_0.png",
+        "decoded": true,
+        "payload_format": "indexed pandas Series text",
+        "url_host": "www.google.com"
+      },
+      {
+        "path": "QR codes/benign/benign/benign_32498.png",
+        "decoded": true,
+        "payload_format": "indexed pandas Series text",
+        "url_host": "www.joannierochette.org"
+      },
+      {
+        "path": "QR codes/benign/benign/benign_54999.png",
+        "decoded": true,
+        "payload_format": "indexed pandas Series text",
+        "url_host": "www.pediaview.com"
+      },
+      {
+        "path": "QR codes/benign/benign/benign_77499.png",
+        "decoded": false,
+        "payload_format": "undecodable",
+        "url_host": null
+      },
+      {
+        "path": "QR codes/benign/benign/benign_99999.png",
+        "decoded": true,
+        "payload_format": "indexed pandas Series text",
+        "url_host": "www.akpsi.org"
+      },
+      {
+        "path": "QR codes/malicious/malicious/malicious_316254.png",
+        "decoded": true,
+        "payload_format": "indexed pandas Series text",
+        "url_host": "atualizacaodedados.online"
+      },
+      {
+        "path": "QR codes/malicious/malicious/malicious_341254.png",
+        "decoded": true,
+        "payload_format": "indexed pandas Series text",
+        "url_host": "dbkunsult.eu"
+      },
+      {
+        "path": "QR codes/malicious/malicious/malicious_366254.png",
+        "decoded": true,
+        "payload_format": "indexed pandas Series text",
+        "url_host": "iansconcept.com"
+      },
+      {
+        "path": "QR codes/malicious/malicious/malicious_391254.png",
+        "decoded": true,
+        "payload_format": "indexed pandas Series text",
+        "url_host": "www.customer-support-number.com"
+      },
+      {
+        "path": "QR codes/malicious/malicious/malicious_416253.png",
+        "decoded": true,
+        "payload_format": "indexed pandas Series text",
+        "url_host": "mdtcs.net"
+      }
+    ]
+  },
+  "representative_visual_observations": "Contact sheet contains high-contrast black-and-white QR codes with no obvious overlays or visible manipulation in the inspected examples. This is a sample-only visual observation, not a tampering label.",
+  "limitations": [
+    "Archive image inventory, PNG header stats, and SHA-256 duplicate scan are exhaustive.",
+    "Extracted-copy identity was checked on three deterministic samples per candidate folder, not all files.",
+    "PNG header parsing is not full pixel decoding; representative samples are visually/decode checked separately.",
+    "Near-duplicate search and all-image payload decoding were not run."
+  ],
+  "zip_inventory": {
+    "project_root_zip_files": [
+      "qr.zip",
+      "url.zip"
+    ],
+    "qr_related_zip_files": [
+      "qr.zip"
+    ],
+    "qr_related_zip_count": 1
+  }
+}
